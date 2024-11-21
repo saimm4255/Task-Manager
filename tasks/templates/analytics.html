@@ -1,0 +1,17 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="taskChart"></canvas>
+<script>
+    const ctx = document.getElementById('taskChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Total Tasks', 'Completed Tasks'],
+            datasets: [{
+                label: 'Task Stats',
+                data: [{{ task_count }}, {{ completed_tasks }}],
+                backgroundColor: ['blue', 'green'],
+            }]
+        }
+    });
+</script>
