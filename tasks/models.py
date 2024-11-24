@@ -43,3 +43,8 @@ class Notification(models.Model):
 class CalendarIntegration(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     google_calendar_id = models.CharField(max_length=255)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    fcm_token = models.CharField(max_length=255, null=True, blank=True)

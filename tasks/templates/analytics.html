@@ -1,4 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="taskCompletionChart"></canvas>
 
 <canvas id="taskChart"></canvas>
 <script>
@@ -13,5 +14,20 @@
                 backgroundColor: ['blue', 'green'],
             }]
         }
+    });
+</script>
+<script>
+    const ctx = document.getElementById('taskCompletionChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Completed', 'Pending'],
+            datasets: [{
+                label: 'Tasks',
+                data: [completedTasks, totalTasks - completedTasks],
+                backgroundColor: ['#4caf50', '#f44336']
+            }]
+        },
+        options: {}
     });
 </script>
